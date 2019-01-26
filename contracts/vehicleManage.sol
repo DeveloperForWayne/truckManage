@@ -2,90 +2,90 @@ pragma solidity >=0.4.21 <0.6.0;
 
 contract Drivers {
     address public owner;
-    string DriverID;
-    mapping(string => string) DriverInfo;
+    bytes DriverID;
+    mapping(bytes => bytes) DriverInfo;
 
     constructor() public {
         owner = msg.sender;
     }
 
-    function setDriverInfo(string memory _DriverID, string memory _ipfsHash) public {
+    function setDriverInfo(bytes memory _DriverID, bytes memory _ipfsHash) public {
         DriverInfo[_DriverID] = _ipfsHash;
     }
 
-    function getDriverInfo(string memory _DriverID) public view returns (string memory)  {
+    function getDriverInfo(bytes memory _DriverID) public view returns (bytes memory)  {
         return DriverInfo[_DriverID];
     }
 }
 
 contract Vehicles {
     address public owner;
-    string VehicleID;
-    mapping(string => string) VehicleInfo;
+    bytes VehicleID;
+    mapping(bytes => bytes) VehicleInfo;
 
     constructor() public {
         owner = msg.sender;
     }
 
-    function setVehicleInfo(string memory _VehicleID, string memory _vehicleHash) public {
+    function setVehicleInfo(bytes memory _VehicleID, bytes memory _vehicleHash) public {
         VehicleInfo[_VehicleID] = _vehicleHash;
     }
 
-    function getVehicleInfo(string memory _VehicleID) public view returns (string memory)  {
+    function getVehicleInfo(bytes memory _VehicleID) public view returns (bytes memory)  {
         return VehicleInfo[_VehicleID];
     }
 }
 
 contract Schedule {
     address public owner;
-    string ScheduleNo;
-    string ScheduleDetail;
-    mapping(string => string) PreDeliveryList;
-    mapping(string => string) PostDeliveryList;
-    mapping(string => string) ScheduledRoute;
-    mapping(string => string) DrivenRoute;
+    bytes ScheduleNo;
+    bytes ScheduleDetail;
+    mapping(bytes => bytes) PreDeliveryList;
+    mapping(bytes => bytes) PostDeliveryList;
+    mapping(bytes => bytes) ScheduledRoute;
+    mapping(bytes => bytes) DrivenRoute;
 
     constructor() public {
         owner = msg.sender;
     }
 
-    function setScheduleDetail(string memory _schDetailHash) public {
+    function setScheduleDetail(bytes memory _schDetailHash) public {
         ScheduleDetail = _schDetailHash;
     }
 
-    function getScheduleDetail() public view returns (string memory)  {
+    function getScheduleDetail() public view returns (bytes memory)  {
         return ScheduleDetail;
     }
 
-    function setScheduledRoute(string memory _ScheduleNo, string memory _scheduledRouteHash) public {
+    function setScheduledRoute(bytes memory _ScheduleNo, bytes memory _scheduledRouteHash) public {
         ScheduledRoute[_ScheduleNo] = _scheduledRouteHash;
     }
 
-    function getScheduledRoute(string memory _ScheduleNo) public view returns (string memory)  {
+    function getScheduledRoute(bytes memory _ScheduleNo) public view returns (bytes memory)  {
         return ScheduledRoute[_ScheduleNo];
     }
 
-    function setDrivenRoute(string memory _ScheduleNo, string memory _DrivenRouteRouteHash) public {
+    function setDrivenRoute(bytes memory _ScheduleNo, bytes memory _DrivenRouteRouteHash) public {
         DrivenRoute[_ScheduleNo] = _DrivenRouteRouteHash;
     }
 
-    function getDrivenRoute(string memory _ScheduleNo) public view returns (string memory)  {
+    function getDrivenRoute(bytes memory _ScheduleNo) public view returns (bytes memory)  {
         return DrivenRoute[_ScheduleNo];
     }
 
-    function setPreDeliveryList(string memory _ScheduleNo, string memory _preListHash) public {
+    function setPreDeliveryList(bytes memory _ScheduleNo, bytes memory _preListHash) public {
         PreDeliveryList[_ScheduleNo] = _preListHash;
     }
 
-    function getPreDeliveryList(string memory _ScheduleNo) public view returns (string memory)  {
+    function getPreDeliveryList(bytes memory _ScheduleNo) public view returns (bytes memory)  {
         return PreDeliveryList[_ScheduleNo];
     }
 
-    function setPostDeliveryList(string memory _ScheduleNo, string memory _postListHash) public {
+    function setPostDeliveryList(bytes memory _ScheduleNo, bytes memory _postListHash) public {
         PostDeliveryList[_ScheduleNo] = _postListHash;
     }
 
-    function getPostDeliveryList(string memory _ScheduleNo) public view returns (string memory)  {
+    function getPostDeliveryList(bytes memory _ScheduleNo) public view returns (bytes memory)  {
         return PostDeliveryList[_ScheduleNo];
     }
 }
